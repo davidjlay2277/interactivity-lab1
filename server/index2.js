@@ -1,44 +1,18 @@
-//////////////////COPY index1.js ////////////////////////////////////////
+//////////////////COPY index1.js
 ///////////////////put all the pieces together in a function//////////////
 
 console.log("hello again, world");
 
-// const addMovie = (event) => {}
-
-const inputField = document.querySelector(".movie-input");
-console.log(inputField.textContent);
-
-//select the description in the DOM
-const description = document.querySelector(".description");
-//create a new paragraph
-const newDescription = document.createElement("p");
-newDescription.textContent =
-  "This site should allow a user to add a movie to a movie list by entering a string and pressing the button";
-//add (append) the new paragraph to the description class
-description.appendChild(newDescription);
-
-//parent element for movie list
-const movieList = document.querySelector(".movie-list");
-//parent element for the movie title and delete button
-const movie = document.createElement("li");
-//a new span element for a movie title in the "movie-list" class
-const movieTitle = document.createElement("span");
-
-//append a movie lsit item to the movie-list class
-movieList.appendChild(movie);
-//
-movie.appendChild(movieTitle);
-// TEST THE CODE ABOVE WITH HARD CODED MOVIE TITLE
-// movieTitle.textContent = "testing ...the button is not on"
-movieTitle.textContent = inputField;
-
-//query select the desired button by ID and save it as a variable to use in the event listener
-const eventButton1 = document.querySelector("#button1")
-eventButton1.addEventListener("click",() =>{
- alert('the button was clicked')
-})
-
-// SAME thing as above comment, but w/o variable
-document.querySelector("#button1").addEventListener("click",() =>{
-    alert('the button was clicked')
-   })
+function addMovie(event) {
+  event.preventDefault();
+  let inputField = document.querySelector("#input1");
+  const movieList = document.querySelector("#list");
+  const movie = document.createElement("li");
+  const movieTitle = document.createElement("span");
+  movieList.appendChild(movie);
+  movie.appendChild(movieTitle);
+  //I had .textContent instead of .value
+  movieTitle.textContent = inputField.value;
+}
+const event1 = document.querySelector("#button1");
+event1.addEventListener("click", addMovie);

@@ -27,7 +27,7 @@ movieList.appendChild(movie);
 movie.appendChild(movieTitle);
 // TEST THE CODE ABOVE WITH HARD CODED MOVIE TITLE
 // movieTitle.textContent = "testing ...the button is not on"
-movieTitle.textContent = inputField;
+movieTitle.textContent = inputField.value;
 
 //query select the desired button by ID and save it as a variable to use in the event listener
 const eventButton1 = document.querySelector("#button1")
